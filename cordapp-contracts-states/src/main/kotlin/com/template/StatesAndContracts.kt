@@ -5,6 +5,9 @@ import net.corda.core.contracts.Contract
 import net.corda.core.contracts.ContractState
 import net.corda.core.identity.AbstractParty
 import net.corda.core.transactions.LedgerTransaction
+import net.corda.core.identity.Party
+import java.util.*
+
 
 // *****************
 // * Contract Code *
@@ -28,6 +31,13 @@ class TemplateContract : Contract {
 // *********
 // * State *
 // *********
-data class TemplateState(val data: String) : ContractState {
-    override val participants: List<AbstractParty> get() = listOf()
+class NeedState(val value: Int,
+                     val expDate: Date,
+                     val Issuer: Party,
+                     val PossibleInvestors: MutableList<Party>) : ContractState {
+    var myparticipants : MutableList<Party> = (PossibleInvestors, Issuer)
+    override val participants get() = PossibleInvestors
 }
+
+
+
