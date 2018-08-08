@@ -37,7 +37,7 @@ class NeedState(val value: Int,
                      val PossibleInvestors: MutableList<Party>) : ContractState {
     var myparticipants : MutableList<Party> = (PossibleInvestors, Issuer)
     override val participants get() = PossibleInvestors
-    issuer 2
+    var Orsichange: Int = 2
 }
 
 
